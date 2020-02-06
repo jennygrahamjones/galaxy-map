@@ -1,4 +1,4 @@
-interface Planet {
+export default interface Planet {
   cartodb_id: number;
   zm: number;
   canon: number;

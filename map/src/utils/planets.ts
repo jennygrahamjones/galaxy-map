@@ -15,12 +15,19 @@ const getDataForPlanetWithName = (name: string) => {
 };
 
 const findFactionForPlanetWithName = (name: string) => {
-  const faction = factionPlanets.find(faction =>
-    faction.planets.includes(name)
+  const faction = factionPlanets.find(
+    faction => faction.planets.includes(name) && faction.type === "primary"
   );
   return faction
     ? { factionName: faction.factionName, colour: faction.colour }
     : { factionName: "Unallied", colour: "black" };
+};
+
+const findSubFactionsForPlanetWithName = (name: string) => {
+  const factions = factionPlanets.filter(
+    faction => faction.planets.includes(name) && faction.type === "secondary"
+  );
+  return factions ? factions : [];
 };
 
 const featuresOfPlanet = (name: string) => {
@@ -34,5 +41,6 @@ export {
   getDataForPlanetWithName,
   fullListOfPlanetNames,
   findFactionForPlanetWithName,
-  featuresOfPlanet
+  featuresOfPlanet,
+  findSubFactionsForPlanetWithName
 };

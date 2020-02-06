@@ -1,6 +1,7 @@
 [
   {
     "factionName": "Alliance",
+    "type": "primary",
     "planets": [
       "Abyss",
       "Algara II",
@@ -100,6 +101,7 @@
   },
   {
     "factionName": "Empire",
+    "type": "primary",
     "planets": [
       "Byss",
       "Bespin",
@@ -107,12 +109,14 @@
       "Corulag",
       "Hoth",
       "Bakura",
-      "Endor"
+      "Endor",
+      "Dathomir"
     ],
     "colour": "blue"
   },
   {
     "factionName": "Hutt Cartels",
+    "type": "primary",
     "planets": [
       "Gamorr",
       "Nal Hutta & Nar Shaddaa",
@@ -121,5 +125,11 @@
       "Boz Pity"
     ],
     "colour": "olive"
+  },
+  { "factionName": "Jedi", "type": "secondary", "planets": ["Ossus"] },
+  {
+    "factionName": "Witches of Dathomir",
+    "type": "secondary",
+    "planets": ["Dathomir"]
   }
 ]

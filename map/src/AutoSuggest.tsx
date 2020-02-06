@@ -5,9 +5,11 @@ import {
   getDataForPlanetWithName,
   fullListOfPlanetNames,
   findFactionForPlanetWithName,
-  featuresOfPlanet
+  featuresOfPlanet,
+  findSubFactionsForPlanetWithName
 } from "./utils/planets";
 import styled from "styled-components";
+import Planet from "./interfaces/planet";
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (value: string) => {
@@ -34,7 +36,7 @@ const ResultButton = styled.button`
   color: white;
   background-color: #282c34;
   :hover {
-    background-color: #474B52;
+    background-color: #474b52;
   }
 `;
 
@@ -120,6 +122,9 @@ export default class AutoComplete extends React.Component {
               planetData={this.state.planetData}
               planetFeatures={featuresOfPlanet(this.state.planetData.name)}
               factionData={findFactionForPlanetWithName(
+                this.state.planetData.name
+              )}
+              subFactionData={findSubFactionsForPlanetWithName(
                 this.state.planetData.name
               )}
             />

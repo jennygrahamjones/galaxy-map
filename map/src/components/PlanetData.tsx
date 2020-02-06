@@ -23,8 +23,10 @@ const PlanetDataContainer = styled.div`
 
 const PlanetData = props => {
   const { name, sector, region, link, grid } = props.planetData;
-  const { factionName, colour } = props.factionData;
+  const { factionName, type, colour } = props.factionData;
   const { climate, terrain, population } = props.planetFeatures;
+
+  const hasSubFactions = props.subFactionData.length > 0;
 
   return (
     <PlanetDataContainer factionColor={colour}>
@@ -35,6 +37,21 @@ const PlanetData = props => {
         <p>
           <span>Held by:</span> {factionName}
         </p>
+      )}
+      {hasSubFactions && (
+        <div>
+          <span>Factions represented:</span>
+          <ul>
+            {props.subFactionData.map(faction => {
+              const keyId = props.subFactionData.indexOf(faction);
+              return (
+                <li className="sub-faction" key={keyId}>
+                  {faction.factionName}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       )}
       {sector && (
         <p>
