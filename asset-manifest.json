@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/galaxy-map/static/css/main.4df8ec81.chunk.css",
+    "main.js": "/galaxy-map/static/js/main.f15d85ed.chunk.js",
+    "main.js.map": "/galaxy-map/static/js/main.f15d85ed.chunk.js.map",
+    "runtime-main.js": "/galaxy-map/static/js/runtime-main.18fb0681.js",
+    "runtime-main.js.map": "/galaxy-map/static/js/runtime-main.18fb0681.js.map",
+    "static/js/2.4255cd0b.chunk.js": "/galaxy-map/static/js/2.4255cd0b.chunk.js",
+    "static/js/2.4255cd0b.chunk.js.map": "/galaxy-map/static/js/2.4255cd0b.chunk.js.map",
+    "index.html": "/galaxy-map/index.html",
+    "precache-manifest.170f7fd25797ef87e2523340dbfc450f.js": "/galaxy-map/precache-manifest.170f7fd25797ef87e2523340dbfc450f.js",
+    "service-worker.js": "/galaxy-map/service-worker.js",
+    "static/css/main.4df8ec81.chunk.css.map": "/galaxy-map/static/css/main.4df8ec81.chunk.css.map",
+    "static/js/2.4255cd0b.chunk.js.LICENSE.txt": "/galaxy-map/static/js/2.4255cd0b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.18fb0681.js",
+    "static/js/2.4255cd0b.chunk.js",
+    "static/css/main.4df8ec81.chunk.css",
+    "static/js/main.f15d85ed.chunk.js"
+  ]
+}
