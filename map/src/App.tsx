@@ -1,16 +1,32 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { Component } from "react";
 import "./App.css";
 import AutoComplete from "./AutoSuggest";
 
-const App = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <AutoComplete />
-      </header>
-    </div>
-  );
-};
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      planetData: ""
+    };
+  }
+
+  displayData = (nameOfPlanet: string) => {
+    this.setState({ planetData: nameOfPlanet });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>Galaxy Map</h1>
+          <>
+            <AutoComplete />
+          </>
+        </header>
+        <div id="planetData"></div>
+      </div>
+    );
+  }
+}
 
 export default App;

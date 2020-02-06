@@ -1,11 +1,13 @@
 import React from "react";
 import Autosuggest from "react-autosuggest";
-import planets from "./data/planets.json";
-import planetsGeo from "./data/planetsGeo.json";
-
-const planetsFull = planetsGeo.features
-  .map(x => x.properties.name)
-  .filter(name => name !== null);
+import PlanetData from "./components/PlanetData";
+import {
+  getDataForPlanetWithName,
+  fullListOfPlanetNames,
+  findFactionForPlanetWithName,
+  featuresOfPlanet
+} from "./utils/planets";
+import styled from "styled-components";
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (value: string) => {
@@ -14,7 +16,7 @@ const getSuggestions = (value: string) => {
 
   return inputLength === 0
     ? []
-    : planetsFull.filter(
+    : fullListOfPlanetNames.filter(
         name => name.toLowerCase().slice(0, inputLength) === inputValue
       );
 };
@@ -24,8 +26,17 @@ const getSuggestions = (value: string) => {
 // input value for every given suggestion.
 const getSuggestionValue = suggestion => suggestion;
 
-// Use your imagination to render suggestions.
-const renderSuggestion = suggestion => <div>{suggestion}</div>;
+const ResultButton = styled.button`
+  font-size: 0.5em;
+  margin: 0.4em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  color: white;
+  background-color: #282c34;
+  :hover {
+    background-color: #474B52;
+  }
+`;
 
 export default class AutoComplete extends React.Component {
   // Autosuggest is a controlled component.
@@ -35,7 +46,23 @@ export default class AutoComplete extends React.Component {
   // and they are initially empty because the Autosuggest is closed.
   state = {
     value: "",
-    suggestions: []
+    suggestions: [],
+    planetData: {} as Planet
+  };
+
+  // Use your imagination to render suggestions.
+  renderSuggestion = suggestion => {
+    const planetData: Planet = getDataForPlanetWithName(suggestion);
+    return (
+      <>
+        <ResultButton
+          onClick={() => {
+            this.setState({ planetData: planetData });
+          }}>
+          {suggestion}
+        </ResultButton>
+      </>
+    );
   };
 
   onChange = (event, { newValue }) => {
@@ -48,7 +75,8 @@ export default class AutoComplete extends React.Component {
   // You already implemented this logic above, so just use it.
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      suggestions: getSuggestions(value)
+      suggestions: getSuggestions(value),
+      planetData: {}
     });
   };
 
@@ -56,6 +84,12 @@ export default class AutoComplete extends React.Component {
   onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: []
+    });
+  };
+
+  clearPlanetData = () => {
+    this.setState({
+      planetData: {}
     });
   };
 
@@ -71,14 +105,27 @@ export default class AutoComplete extends React.Component {
 
     // Finally, render it!
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-      />
+      <>
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={this.renderSuggestion}
+          inputProps={inputProps}
+        />
+        {this.state.planetData.name && (
+          <div id="result">
+            <PlanetData
+              planetData={this.state.planetData}
+              planetFeatures={featuresOfPlanet(this.state.planetData.name)}
+              factionData={findFactionForPlanetWithName(
+                this.state.planetData.name
+              )}
+            />
+          </div>
+        )}
+      </>
     );
   }
 }
