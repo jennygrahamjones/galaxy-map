@@ -4,6 +4,11 @@ object-assign
 @license MIT
 */
 
+/* @preserve
+ * Leaflet 1.6.0, a JS library for interactive maps. http://leafletjs.com
+ * (c) 2010-2019 Vladimir Agafonkin, (c) 2010-2011 CloudMade
+ */
+
 /** @license React v0.18.0
  * scheduler.production.min.js
  *
