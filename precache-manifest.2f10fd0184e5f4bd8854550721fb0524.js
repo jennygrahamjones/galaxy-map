@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7c1feab8cf723acccde522e3d96a8500",
+    "revision": "e391b63c1cb7384654e05f72aa2d68a6",
     "url": "/galaxy-map/index.html"
   },
   {
-    "revision": "4c23bfc108d3f2c1f475",
+    "revision": "2aacb0624065d19cb757",
     "url": "/galaxy-map/static/css/main.4df8ec81.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/galaxy-map/static/js/2.4255cd0b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4c23bfc108d3f2c1f475",
-    "url": "/galaxy-map/static/js/main.f15d85ed.chunk.js"
+    "revision": "2aacb0624065d19cb757",
+    "url": "/galaxy-map/static/js/main.9af993c5.chunk.js"
   },
   {
     "revision": "c38576b5257d8adbe1e0",
