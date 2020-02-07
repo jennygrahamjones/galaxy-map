@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "99a8337603da0294e007309bdead1df4",
+    "revision": "e391b63c1cb7384654e05f72aa2d68a6",
     "url": "/galaxy-map/index.html"
   },
   {
