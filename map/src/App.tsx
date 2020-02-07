@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import AutoComplete from "./AutoSuggest";
+import { BaseMap } from "./components/map/BaseMap";
 
 class App extends Component {
   constructor(props) {
@@ -9,10 +10,6 @@ class App extends Component {
       planetData: ""
     };
   }
-
-  displayData = (nameOfPlanet: string) => {
-    this.setState({ planetData: nameOfPlanet });
-  };
 
   render() {
     return (
@@ -24,6 +21,7 @@ class App extends Component {
           </>
         </header>
         <div id="planetData"></div>
+        <BaseMap />
       </div>
     );
   }
