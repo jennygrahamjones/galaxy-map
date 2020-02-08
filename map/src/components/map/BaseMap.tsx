@@ -1,10 +1,16 @@
-import { GeoJSON, Map, LayersControl, Marker, Tooltip } from "react-leaflet";
+import { Map, LayersControl, Marker, Tooltip, LayerGroup } from "react-leaflet";
 import React from "react";
 import region from "../../data/region.json";
 import sector from "../../data/sector.json";
 import grid from "../../data/grid.json";
 import { CRS } from "leaflet";
 import { Planet } from "../../interfaces/planet.js";
+import { Region } from "../../interfaces/region.js";
+import { Sector } from "../../interfaces/sector.js";
+import { GridSquare } from "../../interfaces/gridsquare.js";
+import { SectorComponent } from "./SectorComponent";
+import { RegionComponent } from "./RegionComponent";
+import { GridComponent } from "./GridComponent";
 
 export class BaseMap extends React.Component<{ onToolTipClick: any }> {
   state = {
@@ -79,25 +85,39 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
     }
   ];
 
-  doIt = name => this.props.onToolTipClick(name);
-
   createMarkers() {
     return this.examples.map(planet => {
       const coords = planet.geometry.coordinates.reverse();
+      const { name, uid } = planet.properties;
       const marker = (
-        <Marker
-          key={`marker-${planet.properties.uid}`}
-          position={coords}
-          title={planet.properties.name}
-          onClick={() => {
-            this.doIt(planet.properties);
-          }}>
-          <Tooltip key={`tooltip-${planet.properties.uid}`}>
-            {planet.properties.name}
-          </Tooltip>
+        <Marker key={`marker-${uid}`} position={coords} title={name}>
+          <Tooltip key={`tooltip-${uid}`}>{name}</Tooltip>
         </Marker>
       );
       return marker;
+    });
+  }
+
+  createSectors() {
+    const sectors: Sector[] = sector.features;
+    return sectors.map(s => {
+      const sec = <SectorComponent {...s} />;
+      return sec;
+    });
+  }
+
+  createRegions() {
+    const regions: Region[] = region.features;
+    return regions.map(r => {
+      const reg = <RegionComponent {...r} />;
+      return reg;
+    });
+  }
+
+  createGrid() {
+    const gridSquares: GridSquare[] = grid.features;
+    return gridSquares.map(g => {
+      return <GridComponent {...g} />;
     });
   }
 
@@ -107,36 +127,16 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
         <LayersControl position="topright">
           {this.createMarkers()}
           <LayersControl.Overlay name="Grid" checked={false}>
-            <GeoJSON
-              data={grid}
-              style={() => ({
-                color: "#4a83ec",
-                weight: 0.5
-              })}
-            />
+            <LayerGroup>{this.createGrid()}</LayerGroup>
           </LayersControl.Overlay>
           <LayersControl.Overlay
             name="Planets"
             checked={false}></LayersControl.Overlay>
           <LayersControl.Overlay name="Galactic sectors" checked={false}>
-            <GeoJSON
-              data={sector}
-              style={() => ({
-                color: "#4a83ec",
-                weight: 0.5,
-                fillColor: "black",
-                fillOpacity: 0.5
-              })}
-            />
+            <LayerGroup>{this.createSectors()}</LayerGroup>
           </LayersControl.Overlay>
           <LayersControl.Overlay name="Galactic regions" checked={true}>
-            <GeoJSON
-              data={region}
-              style={() => ({
-                color: "#4a83ec",
-                weight: 0.5
-              })}
-            />
+            <LayerGroup> {this.createRegions()}</LayerGroup>
           </LayersControl.Overlay>
         </LayersControl>
       </Map>

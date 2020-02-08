@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { numberWithCommas } from "../utils/common";
 import {
   featuresOfPlanet,
-  findFactionForPlanetWithName,
-  findSubFactionsForPlanetWithName
+  findFactionForPlanetWithName
 } from "../utils/planets";
 import { PlanetProperties } from "../interfaces/planet";
 

@@ -1,0 +1,17 @@
+[
+  {
+    "factionName": "Alliance",
+    "color": "red",
+    "sectors": ["Japrael", "Hapes Cluster", "Prackla"]
+  },
+  {
+    "factionName": "Empire",
+    "color": "blue",
+    "sectors": ["Mandalore", "Doldur"]
+  },
+  {
+    "factionName": "Hutt Cartel",
+    "color": "olive",
+    "sectors": ["Hutt Space"]
+  }
+]
