@@ -3,13 +3,10 @@ import Autosuggest from "react-autosuggest";
 import PlanetData from "./components/PlanetData";
 import {
   getDataForPlanetWithName,
-  fullListOfPlanetNames,
-  findFactionForPlanetWithName,
-  featuresOfPlanet,
-  findSubFactionsForPlanetWithName
+  fullListOfPlanetNames
 } from "./utils/planets";
 import styled from "styled-components";
-import Planet from "./interfaces/planet";
+import { PlanetProperties } from "./interfaces/planet";
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (value: string) => {
@@ -49,12 +46,12 @@ export default class AutoComplete extends React.Component {
   state = {
     value: "",
     suggestions: [],
-    planetData: {} as Planet
+    planetData: {} as PlanetProperties
   };
 
   // Use your imagination to render suggestions.
   renderSuggestion = suggestion => {
-    const planetData: Planet = getDataForPlanetWithName(suggestion);
+    const planetData: PlanetProperties = getDataForPlanetWithName(suggestion);
     return (
       <>
         <ResultButton
@@ -96,7 +93,7 @@ export default class AutoComplete extends React.Component {
   };
 
   render() {
-    const { value, suggestions } = this.state;
+    const { value, suggestions, planetData } = this.state;
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
@@ -118,16 +115,7 @@ export default class AutoComplete extends React.Component {
         />
         {this.state.planetData.name && (
           <div id="result">
-            <PlanetData
-              planetData={this.state.planetData}
-              planetFeatures={featuresOfPlanet(this.state.planetData.name)}
-              factionData={findFactionForPlanetWithName(
-                this.state.planetData.name
-              )}
-              subFactionData={findSubFactionsForPlanetWithName(
-                this.state.planetData.name
-              )}
-            />
+            <PlanetData {...planetData} />
           </div>
         )}
       </>

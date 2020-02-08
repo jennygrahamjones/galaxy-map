@@ -1,4 +1,4 @@
-export default interface Planet {
+export interface PlanetProperties {
   cartodb_id: number;
   zm: number;
   canon: number;
@@ -15,3 +15,16 @@ export default interface Planet {
   y: number;
   x: number;
 }
+
+interface PlanetGeometry {
+  type: string;
+  coordinates: number[];
+}
+
+export interface Planet {
+  type: string;
+  geometry: PlanetGeometry;
+  properties: PlanetProperties;
+}
+
+export interface Planet {}

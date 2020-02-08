@@ -333,5 +333,10 @@
     "factionName": "Witches of Dathomir",
     "type": "secondary",
     "planets": ["Dathomir"]
+  },
+  {
+    "factionName": "The Circle",
+    "type": "secondary",
+    "planets": ["Hapes", "Onderon & Dxun"]
   }
 ]
