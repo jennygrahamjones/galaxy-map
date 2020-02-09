@@ -1,14 +1,15 @@
-import React from "react";
 import FuzzySearch from "fuzzy-search";
-import planetsGeo from "../../data/planetsGeo.json";
+import React from "react";
+import { Popup } from "react-leaflet";
 import ReactLeafletSearch from "react-leaflet-search";
+
+import planetsGeo from "../../data/planetsGeo.json";
+import { PlanetProperties } from "../../interfaces/planet.js";
 import {
   coordinatesForPlanet,
   getDataForPlanetWithName
 } from "../../utils/planets";
-import { Popup } from "react-leaflet";
 import PlanetData from "../PlanetData";
-import { PlanetProperties } from "../../interfaces/planet.js";
 
 const myPopup = search => {
   const data: PlanetProperties = getDataForPlanetWithName(search.info);

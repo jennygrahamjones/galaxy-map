@@ -1,5 +1,6 @@
 import React from "react";
 import { GeoJSON, Tooltip } from "react-leaflet";
+
 import { Region } from "../../interfaces/region";
 
 export const RegionComponent = (inputRegion: Region) => {

@@ -1,11 +1,7 @@
-import L from "leaflet";
-import {
-  featuresOfPlanet,
-  isFactionCapitol,
-  findFactionForPlanetWithName,
-  getDataForPlanetWithName
-} from "./utils/planets";
-import { PlanetProperties } from "./interfaces/planet";
+import L from 'leaflet';
+
+import { PlanetProperties } from './interfaces/planet';
+import { featuresOfPlanet, findFactionForPlanetWithName, getDataForPlanetWithName, isFactionCapitol } from './utils/planets';
 
 export const iconForPlanet = (planet: string) => {
   const { climate, terrain } = featuresOfPlanet(planet);

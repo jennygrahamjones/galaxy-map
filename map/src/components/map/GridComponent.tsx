@@ -1,6 +1,7 @@
-import { GridSquare } from "../../interfaces/gridsquare";
 import React from "react";
 import { GeoJSON } from "react-leaflet";
+
+import { GridSquare } from "../../interfaces/gridsquare";
 
 export const GridComponent = (input: GridSquare) => {
   return (

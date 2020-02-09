@@ -1,5 +1,7 @@
-import React, { Component } from "react";
 import "./App.css";
+
+import React, { Component } from "react";
+
 import { BaseMap } from "./components/map/BaseMap";
 import { PlanetProperties } from "./interfaces/planet";
 

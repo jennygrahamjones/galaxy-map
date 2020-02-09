@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+
+import { PlanetProperties } from "../interfaces/planet";
 import { numberWithCommas } from "../utils/common";
 import {
   featuresOfPlanet,
   findFactionForPlanetWithName
 } from "../utils/planets";
-import { PlanetProperties } from "../interfaces/planet";
 
 const PlanetDataContainer = styled.div`
   width: fit-content;
