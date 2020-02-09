@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "253b6b1c0f9a8d9ce7beb7fcf6e91e81",
+    "revision": "dab2be0522c5a6a15714a3bceb8a991a",
     "url": "/galaxy-map/index.html"
   },
   {
-    "revision": "208196b8a71fa3642e57",
+    "revision": "1268fa2690389d7128ad",
     "url": "/galaxy-map/static/css/main.659ad75e.chunk.css"
   },
   {
-    "revision": "f0f0ba17dc80dae5d3e1",
-    "url": "/galaxy-map/static/js/2.ed0da029.chunk.js"
+    "revision": "56a34d83593d9ae548c7",
+    "url": "/galaxy-map/static/js/2.d934b376.chunk.js"
   },
   {
     "revision": "ac5d9a2ccd3ba848587d2a460762f2f0",
-    "url": "/galaxy-map/static/js/2.ed0da029.chunk.js.LICENSE.txt"
+    "url": "/galaxy-map/static/js/2.d934b376.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "208196b8a71fa3642e57",
-    "url": "/galaxy-map/static/js/main.18b7f5b5.chunk.js"
+    "revision": "1268fa2690389d7128ad",
+    "url": "/galaxy-map/static/js/main.8c59019f.chunk.js"
   },
   {
     "revision": "c38576b5257d8adbe1e0",
