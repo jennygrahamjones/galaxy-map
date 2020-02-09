@@ -20,7 +20,7 @@ import { SectorComponent } from "./SectorComponent";
 import { RegionComponent } from "./RegionComponent";
 import { GridComponent } from "./GridComponent";
 import { iconForPlanet } from "../../icon";
-
+import { searchComponent } from "./SearchComponent";
 export class BaseMap extends React.Component<{ onToolTipClick: any }> {
   state = {
     lat: 51.505,
@@ -50,7 +50,7 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
   createSectors() {
     const sectors: Sector[] = sector.features;
     return sectors.map(s => {
-      const sec = <SectorComponent {...s} />;
+      const sec = <SectorComponent key={`sector-${s.properties.sid}`} {...s} />;
       return sec;
     });
   }
@@ -58,7 +58,7 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
   createRegions() {
     const regions: Region[] = region.features;
     return regions.map(r => {
-      const reg = <RegionComponent {...r} />;
+      const reg = <RegionComponent key={`region-${r.properties.rid}`} {...r} />;
       return reg;
     });
   }
@@ -66,7 +66,7 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
   createGrid() {
     const gridSquares: GridSquare[] = grid.features;
     return gridSquares.map(g => {
-      return <GridComponent {...g} />;
+      return <GridComponent key={`grid-${g.properties.grid}`} {...g} />;
     });
   }
 
@@ -96,8 +96,8 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
         zoom={3}
         maxZoom={10}
         crs={CRS.Simple}
-        inertia={true}
-        onzoomend={() => console.log("zoom")}>
+        inertia={true}>
+        {searchComponent({})}
         <LayersControl position="topright">
           {this.createMarkers()}
           <LayersControl.Overlay name="Hyperspace" checked={false}>

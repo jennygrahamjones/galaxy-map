@@ -52,7 +52,6 @@ export const iconForPlanet = (planet: string) => {
     }
   };
 
-  console.log(url());
   return L.icon({
     iconUrl: url(),
     iconSize: [30, 30], // size of the icon

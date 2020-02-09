@@ -4,6 +4,11 @@ import planets from "../data/planets.json";
 
 const UNKNOWN = "Unknown";
 
+export const coordinatesForPlanet = name => {
+  return planetsGeo.features.find(x => x.properties.name === name).geometry
+    .coordinates;
+};
+
 const fullListOfPlanetNames = planetsGeo.features
   .map(x => x.properties.name)
   .filter(name => name !== null);

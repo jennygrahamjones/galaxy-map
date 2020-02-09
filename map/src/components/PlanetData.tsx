@@ -8,15 +8,12 @@ import {
 import { PlanetProperties } from "../interfaces/planet";
 
 const PlanetDataContainer = styled.div`
-  border-color: white;
-  border-style: solid;
-  border-width: 2px;
   width: fit-content;
-  padding: 10px;
-  font-size: 0.5em;
-  margin: 10px;
-  h2 {
-    background: ${props => (props.factionColor ? props.factionColor : "black")};
+  height: fit-content;
+  padding: 5px;
+  font-size: 1em;
+  p {
+    margin: 0;
   }
   a {
     color: white;
@@ -39,7 +36,7 @@ const PlanetData = (planet: PlanetProperties) => {
   return (
     <PlanetDataContainer factionColor={colour}>
       <h2>
-        {name} {grid && "| " + grid}
+        {name} {grid && "- " + grid}
       </h2>
       {factionName && (
         <p>
