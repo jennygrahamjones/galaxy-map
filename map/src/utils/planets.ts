@@ -37,6 +37,13 @@ const featuresOfPlanet = (name: string) => {
     : { climate: UNKNOWN, terrain: UNKNOWN, population: UNKNOWN };
 };
 
+export const isFactionCapitol = name => {
+  const faction = factionPlanets.find(
+    faction => faction.planets.includes(name) && faction.type === "primary"
+  );
+  return faction ? faction.capitol === name : false;
+};
+
 export {
   getDataForPlanetWithName,
   fullListOfPlanetNames,

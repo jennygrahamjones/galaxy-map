@@ -2,16 +2,17 @@
   {
     "factionName": "Alliance",
     "color": "red",
-    "sectors": ["Japrael", "Hapes Cluster", "Prackla"]
+    "sectors": ["Japrael", "Hapes Cluster", "Prackla", "Bothan Space"]
   },
   {
     "factionName": "Empire",
     "color": "blue",
-    "sectors": ["Mandalore", "Doldur"]
+    "sectors": ["Mandalore", "Doldur", "Javin", "Seswenna"]
   },
   {
     "factionName": "Hutt Cartel",
     "color": "olive",
     "sectors": ["Hutt Space"]
-  }
+  },
+  { "factionName": "The Chiss Ascendancy", "color": "cyan", "sectors": "Chiss Ascendancy" }
 ]

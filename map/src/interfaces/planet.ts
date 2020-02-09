@@ -14,6 +14,7 @@ export interface PlanetProperties {
   point_x: number;
   y: number;
   x: number;
+  icon?: string;
 }
 
 interface PlanetGeometry {

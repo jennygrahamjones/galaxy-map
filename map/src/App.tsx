@@ -19,10 +19,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <h1>Galaxy Map</h1>
           <AutoComplete />
-        </header>
+        </header> */}
         <div id="planetData"></div>
         <BaseMap onToolTipClick={this.setPlanetData} />
       </div>

@@ -2,6 +2,7 @@
   {
     "factionName": "Alliance",
     "type": "primary",
+    "capitol": "Bothawui",
     "planets": [
       "Abyss",
       "Almania",
@@ -164,6 +165,7 @@
   },
   {
     "factionName": "Independent (Alliance-adjacent)",
+    "capitol": "n/a",
     "planets": [
       "Ando",
       "Andosha",
@@ -183,6 +185,7 @@
   },
   {
     "factionName": "Empire",
+    "capitol": "Coruscant",
     "type": "primary",
     "planets": [
       "Byss",
@@ -198,6 +201,7 @@
   },
   {
     "factionName": "Neutral/Hutt",
+    "capitol": "Nal Hutta & Nar Shaddaa",
     "type": "primary",
     "planets": [
       "Akrit’tar",
@@ -328,14 +332,21 @@
     ],
     "colour": "olive"
   },
-  { "factionName": "Jedi", "type": "secondary", "planets": ["Ossus"] },
+  {
+    "factionName": "Jedi",
+    "capitol": "Ossus",
+    "type": "secondary",
+    "planets": ["Ossus"]
+  },
   {
     "factionName": "Witches of Dathomir",
+    "capitol": "Dathomir",
     "type": "secondary",
     "planets": ["Dathomir"]
   },
   {
     "factionName": "The Circle",
+    "capitol": "Hapes",
     "type": "secondary",
     "planets": ["Hapes", "Onderon & Dxun"]
   }
