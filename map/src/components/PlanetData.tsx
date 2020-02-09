@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { numberWithCommas } from "../utils/common";
+import {
+  featuresOfPlanet,
+  findFactionForPlanetWithName
+} from "../utils/planets";
+import { PlanetProperties } from "../interfaces/planet";
 
 const PlanetDataContainer = styled.div`
   border-color: white;
@@ -21,12 +26,15 @@ const PlanetDataContainer = styled.div`
   }
 `;
 
-const PlanetData = props => {
-  const { name, sector, region, link, grid } = props.planetData;
-  const { factionName, type, colour } = props.factionData;
-  const { climate, terrain, population } = props.planetFeatures;
+const PlanetData = (planet: PlanetProperties) => {
+  const { name, sector, region, link, grid } = planet;
+  const { factionName, colour } = findFactionForPlanetWithName(name);
+  const { climate, terrain, population } = featuresOfPlanet(name);
 
-  const hasSubFactions = props.subFactionData.length > 0;
+  // const subFactionData = findSubFactionsForPlanetWithName(name);
+  // const hasSubFactions = findSubFactionsForPlanetWithName(name)
+  //   ? this.subFactionData(name).length > 0
+  //   : false;
 
   return (
     <PlanetDataContainer factionColor={colour}>
@@ -38,12 +46,12 @@ const PlanetData = props => {
           <span>Held by:</span> {factionName}
         </p>
       )}
-      {hasSubFactions && (
+      {/* {hasSubFactions && (
         <div>
           <span>Factions represented:</span>
           <ul>
-            {props.subFactionData.map(faction => {
-              const keyId = props.subFactionData.indexOf(faction);
+            {subFactionData.map(faction => {
+              const keyId = subFactionData.indexOf(faction);
               return (
                 <li className="sub-faction" key={keyId}>
                   {faction.factionName}
@@ -52,7 +60,7 @@ const PlanetData = props => {
             })}
           </ul>
         </div>
-      )}
+      )} */}
       {sector && (
         <p>
           <span>Sector:</span> {sector}
