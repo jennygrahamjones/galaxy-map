@@ -1,8 +1,13 @@
-import planetsGeo from "../data/planetsGeo.json";
 import factionPlanets from "../data/factionPlanets.json";
 import planets from "../data/planets.json";
+import planetsGeo from "../data/planetsGeo.json";
 
 const UNKNOWN = "Unknown";
+
+export const coordinatesForPlanet = name => {
+  return planetsGeo.features.find(x => x.properties.name === name).geometry
+    .coordinates;
+};
 
 const fullListOfPlanetNames = planetsGeo.features
   .map(x => x.properties.name)

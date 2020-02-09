@@ -1,11 +1,7 @@
-import L from "leaflet";
-import {
-  featuresOfPlanet,
-  isFactionCapitol,
-  findFactionForPlanetWithName,
-  getDataForPlanetWithName
-} from "./utils/planets";
-import { PlanetProperties } from "./interfaces/planet";
+import L from 'leaflet';
+
+import { PlanetProperties } from './interfaces/planet';
+import { featuresOfPlanet, findFactionForPlanetWithName, getDataForPlanetWithName, isFactionCapitol } from './utils/planets';
 
 export const iconForPlanet = (planet: string) => {
   const { climate, terrain } = featuresOfPlanet(planet);
@@ -52,7 +48,6 @@ export const iconForPlanet = (planet: string) => {
     }
   };
 
-  console.log(url());
   return L.icon({
     iconUrl: url(),
     iconSize: [30, 30], // size of the icon

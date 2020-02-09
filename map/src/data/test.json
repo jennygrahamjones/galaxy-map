@@ -238,7 +238,7 @@
       "cartodb_id": 384,
       "zm": 0,
       "canon": 1,
-      "uid": 383,
+      "uid": 3830,
       "region": "Outer Rim",
       "sector": "Anoat",
       "grid": "K18",
@@ -252,6 +252,48 @@
       "x": -1429.96,
       "icon": "cloud-city.png"
     }
-  },{"type":"Feature","geometry":{"type":"Point","coordinates":[-12.031529,65.344688]},"properties":{"cartodb_id":682,"zm":1,"canon":0,"uid":682,"region":"Outer Rim","sector":"Braxant","grid":"K3","link":"http://starwars.wikia.com/wiki/Bastion","name_web":"Bastion","name_alt":null,"name":"Bastion","point_y":9699.75524086,"point_x":-1339.34364223,"y":9699.76,"x":-1339.34,"icon":"bastion.png"}},
-  {"type":"Feature","geometry":{"type":"Point","coordinates":[0,0]},"properties":{"cartodb_id":178,"zm":0,"canon":1,"uid":177,"region":"Core","sector":null,"grid":null,"link":"http://starwars.wikia.com/wiki/Coruscant","name_web":"Coruscant","name_alt":null,"name":"Coruscant","point_y":0,"point_x":0,"y":0,"x":0}}
+  },
+  {
+    "type": "Feature",
+    "geometry": { "type": "Point", "coordinates": [-12.031529, 65.344688] },
+    "properties": {
+      "cartodb_id": 682,
+      "zm": 1,
+      "canon": 0,
+      "uid": 682,
+      "region": "Outer Rim",
+      "sector": "Braxant",
+      "grid": "K3",
+      "link": "http://starwars.wikia.com/wiki/Bastion",
+      "name_web": "Bastion",
+      "name_alt": null,
+      "name": "Bastion",
+      "point_y": 9699.75524086,
+      "point_x": -1339.34364223,
+      "y": 9699.76,
+      "x": -1339.34,
+      "icon": "bastion.png"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": { "type": "Point", "coordinates": [0, 0] },
+    "properties": {
+      "cartodb_id": 178,
+      "zm": 0,
+      "canon": 1,
+      "uid": 177,
+      "region": "Core",
+      "sector": null,
+      "grid": null,
+      "link": "http://starwars.wikia.com/wiki/Coruscant",
+      "name_web": "Coruscant",
+      "name_alt": null,
+      "name": "Coruscant",
+      "point_y": 0,
+      "point_x": 0,
+      "y": 0,
+      "x": 0
+    }
+  }
 ]
