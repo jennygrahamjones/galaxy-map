@@ -1,51 +1,51 @@
-import {
-  Map,
-  LayersControl,
-  Marker,
-  Tooltip,
-  LayerGroup,
-  GeoJSON
-} from "react-leaflet";
+import { CRS } from "leaflet";
 import React from "react";
-import region from "../../data/region.json";
-import sector from "../../data/sector.json";
+import {
+  GeoJSON,
+  LayerGroup,
+  LayersControl,
+  Map,
+  Marker,
+  Tooltip
+} from "react-leaflet";
+
 import grid from "../../data/grid.json";
 import hyperspace from "../../data/hyperspace.json";
-import { CRS } from "leaflet";
+import region from "../../data/region.json";
+import sector from "../../data/sector.json";
+import { iconForPlanet } from "../../icon";
+import { GridSquare } from "../../interfaces/gridsquare.js";
 import { Planet } from "../../interfaces/planet.js";
 import { Region } from "../../interfaces/region.js";
 import { Sector } from "../../interfaces/sector.js";
-import { GridSquare } from "../../interfaces/gridsquare.js";
-import { SectorComponent } from "./SectorComponent";
-import { RegionComponent } from "./RegionComponent";
 import { GridComponent } from "./GridComponent";
-import { iconForPlanet } from "../../icon";
+import { RegionComponent } from "./RegionComponent";
 import { searchComponent } from "./SearchComponent";
+import { SectorComponent } from "./SectorComponent";
+
 export class BaseMap extends React.Component<{ onToolTipClick: any }> {
-  state = {
-    lat: 51.505,
-    lng: -0.09,
-    zoom: 3
-  };
+  state = {};
 
   examples: Planet[] = require("../../data/test.json");
 
-  createMarkers() {
-    return this.examples.map(planet => {
-      const coords = planet.geometry.coordinates.reverse();
-      const { name, uid } = planet.properties;
-      const marker = (
-        <Marker
-          key={`marker-${uid}`}
-          position={coords}
-          title={name}
-          icon={iconForPlanet(name)}>
-          <Tooltip key={`tooltip-${uid}`}>{name}</Tooltip>
-        </Marker>
-      );
-      return marker;
-    });
-  }
+  createMarkers = (canonOnly: number) => {
+    return this.examples
+      .filter(planet => planet.properties.canon === canonOnly)
+      .map(planet => {
+        const coords = planet.geometry.coordinates.reverse();
+        const { name, uid } = planet.properties;
+        const marker = (
+          <Marker
+            key={`marker-${uid}`}
+            position={coords}
+            title={name}
+            icon={iconForPlanet(name)}>
+            <Tooltip key={`tooltip-${uid}`}>{name}</Tooltip>
+          </Marker>
+        );
+        return marker;
+      });
+  };
 
   createSectors() {
     const sectors: Sector[] = sector.features;
@@ -99,11 +99,17 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
         inertia={true}>
         {searchComponent({})}
         <LayersControl position="topright">
-          {this.createMarkers()}
+          {this.createMarkers(1)}
+          <LayersControl.Overlay name="Legends planets" checked={true}>
+            <LayerGroup> {this.createMarkers(0)}</LayerGroup>
+          </LayersControl.Overlay>
+          <LayersControl.Overlay name="Fan planets" checked={true}>
+            <LayerGroup> {this.createMarkers(2)}</LayerGroup>
+          </LayersControl.Overlay>
           <LayersControl.Overlay name="Hyperspace" checked={false}>
             <LayerGroup>{this.createHyperspace()}</LayerGroup>
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Grid" checked={false}>
+          <LayersControl.Overlay name="Grid" checked={true}>
             <LayerGroup>{this.createGrid()}</LayerGroup>
           </LayersControl.Overlay>
           <LayersControl.Overlay
