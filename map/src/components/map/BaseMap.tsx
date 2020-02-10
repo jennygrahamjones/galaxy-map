@@ -95,7 +95,6 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
         center={[0, 0]}
         zoom={3}
         maxZoom={10}
-        crs={CRS.Simple}
         inertia={true}>
         {searchComponent({})}
         <LayersControl position="topright">
