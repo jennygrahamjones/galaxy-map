@@ -86,16 +86,16 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
           <LayersControl.Overlay name="Fan planets" checked={true}>
             <LayerGroup> {this.createMarkers(2)}</LayerGroup>
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Hyperspace" checked={false}>
+          <LayersControl.Overlay name="Hyperspace routes" checked={false}>
             <LayerGroup>{this.createHyperspace()}</LayerGroup>
           </LayersControl.Overlay>
           <LayersControl.Overlay name="Grid" checked={true}>
             <LayerGroup>{this.createGrid()}</LayerGroup>
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Galactic sectors" checked={true}>
+          <LayersControl.Overlay name=" Sectors" checked={true}>
             <LayerGroup>{this.createSectors()}</LayerGroup>
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Galactic regions" checked={false}>
+          <LayersControl.Overlay name="Regions" checked={false}>
             <LayerGroup> {this.createRegions()}</LayerGroup>
           </LayersControl.Overlay>
         </LayersControl>

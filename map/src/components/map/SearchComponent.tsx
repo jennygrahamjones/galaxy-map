@@ -3,11 +3,11 @@ import React from "react";
 import { Popup } from "react-leaflet";
 import ReactLeafletSearch from "react-leaflet-search";
 
-import planetsGeo from "../../data/planetsGeo.json";
-import { PlanetProperties } from "../../interfaces/planet.js";
+import { PlanetProperties, Planet } from "../../interfaces/planet.js";
 import {
   coordinatesForPlanet,
-  getDataForPlanetWithName
+  getDataForPlanetWithName,
+  allPlanets
 } from "../../utils/planets";
 import PlanetData from "../PlanetData";
 
@@ -34,14 +34,10 @@ export const searchComponent = props => (
     closeResultsOnClick={true}
     customProvider={{
       search: (searchString: string) => {
-        const searcher = new FuzzySearch(
-          planetsGeo.features,
-          ["properties.name"],
-          {
-            caseSensitive: false,
-            sort: true
-          }
-        );
+        const searcher = new FuzzySearch(allPlanets(), ["properties.name"], {
+          caseSensitive: false,
+          sort: true
+        });
         const result = searcher.search(searchString);
         const possiblePlanets = result.map(r => r.properties.name);
 

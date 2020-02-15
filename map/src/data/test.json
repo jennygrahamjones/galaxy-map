@@ -295,5 +295,5 @@
       "y": 0,
       "x": 0
     }
-  }
+  },{"type":"Feature","geometry":{"type":"Point","coordinates":[-10.51422,-62.443124]},"properties":{"cartodb_id":2068,"zm":1,"canon":1,"uid":2071,"region":"Expansion Region","sector":"Trans Jardeen","grid":"K15","link":"http://starwars.wikia.com/wiki/Ring_of_Kafrene","name_web":null,"name_alt":null,"name":"Ring of Kafrene","point_y":-8964.98761729,"point_x":-1170.43759979,"y":-8964.99,"x":-1170.44, "icon":"ringofkafrene.png"}}
 ]

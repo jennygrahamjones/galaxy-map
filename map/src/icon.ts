@@ -27,7 +27,7 @@ export const iconForPlanet = (planet: string) => {
                 return require("./assets/planets/lush-alliance-capital.png");
               // TODO: add for others
               default:
-                return require("./assets/planets/lush-alliance-capital.png");
+                return require("./assets/planets/city.png");
             }
           case false:
             switch (climate) {
