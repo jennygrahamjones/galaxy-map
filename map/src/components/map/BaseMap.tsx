@@ -85,11 +85,13 @@ export class BaseMap extends React.Component {
         <LayersControl position="topright">
           <MarkerClusterGroup
             iconCreateFunction={createClusterCustomIcon}
+            maxClusterRadius={55}
             disableClusteringAtZoom={5}
             spiderLegPolylineOptions={{
               weight: 0,
               opacity: 0
-            }}>
+            }}
+            polygonOptions={{ weight: 0, opacity: 0 }}>
             {this.createMarkers()}
           </MarkerClusterGroup>
           <LayersControl.Overlay name="Hyperspace routes" checked={false}>
