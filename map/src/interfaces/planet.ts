@@ -1,3 +1,5 @@
+import { GeoJsonTypes } from "geojson";
+
 export interface PlanetProperties {
   cartodb_id: number;
   zm: number;
@@ -18,12 +20,12 @@ export interface PlanetProperties {
 }
 
 interface PlanetGeometry {
-  type: string;
+  type: GeoJsonTypes;
   coordinates: number[];
 }
 
 export interface Planet {
-  type: string;
+  type: GeoJsonTypes;
   geometry: PlanetGeometry;
   properties: PlanetProperties;
 }

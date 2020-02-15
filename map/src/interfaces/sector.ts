@@ -1,5 +1,7 @@
+import { GeoJsonTypes } from "geojson";
+
 export interface Sector {
-  type: string;
+  type: GeoJsonTypes;
   geometry: { type: string; coordinates: any };
   properties: {
     sector: string;
