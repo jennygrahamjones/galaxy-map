@@ -91,11 +91,7 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
 
   render() {
     return (
-      <Map
-        center={[0, 0]}
-        zoom={3}
-        maxZoom={10}
-        inertia={true}>
+      <Map center={[0, 0]} zoom={2} maxZoom={10} inertia={true}>
         {searchComponent({})}
         <LayersControl position="topright">
           {this.createMarkers(1)}
@@ -114,10 +110,10 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
           <LayersControl.Overlay
             name="Planets"
             checked={false}></LayersControl.Overlay>
-          <LayersControl.Overlay name="Galactic sectors" checked={false}>
+          <LayersControl.Overlay name="Galactic sectors" checked={true}>
             <LayerGroup>{this.createSectors()}</LayerGroup>
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Galactic regions" checked={true}>
+          <LayersControl.Overlay name="Galactic regions" checked={false}>
             <LayerGroup> {this.createRegions()}</LayerGroup>
           </LayersControl.Overlay>
         </LayersControl>
