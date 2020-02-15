@@ -1,7 +1,12 @@
-import L from 'leaflet';
+import L from "leaflet";
 
-import { PlanetProperties } from './interfaces/planet';
-import { featuresOfPlanet, findFactionForPlanetWithName, getDataForPlanetWithName, isFactionCapitol } from './utils/planets';
+import { PlanetProperties } from "./interfaces/planet";
+import {
+  featuresOfPlanet,
+  findFactionForPlanetWithName,
+  getDataForPlanetWithName,
+  isFactionCapitol
+} from "./utils/planets";
 
 export const iconForPlanet = (planet: string) => {
   const { climate, terrain } = featuresOfPlanet(planet);
@@ -9,7 +14,6 @@ export const iconForPlanet = (planet: string) => {
   const hasPlanetSpecificIcon = !!planetProperties && !!planetProperties.icon;
   const capitol = isFactionCapitol(planet);
   const faction = findFactionForPlanetWithName(planet);
-
 
   const url = () => {
     switch (hasPlanetSpecificIcon) {
@@ -21,8 +25,11 @@ export const iconForPlanet = (planet: string) => {
             switch (faction.factionName) {
               case "Alliance":
                 return require("./assets/planets/lush-alliance-capital.png");
+              // TODO: add for others
+              default:
+                return require("./assets/planets/city.png");
             }
-          default:
+          case false:
             switch (climate) {
               case "frozen":
                 return require("./assets/planets/snow-world.png");

@@ -1,5 +1,7 @@
+import { GeoJsonTypes } from "geojson";
+
 export interface Region {
-  type: string;
+  type: GeoJsonTypes;
   geometry: { type: string; coordinates: any };
   properties: {
     cartodb_id: number;

@@ -1,11 +1,19 @@
 import factionPlanets from "../data/factionPlanets.json";
 import planets from "../data/planets.json";
 import planetsGeo from "../data/planetsGeo.json";
+import missingPlanets from "../data/missingPlanets.json";
+import { Planet } from "../interfaces/planet.js";
 
 const UNKNOWN = "Unknown";
 
+export const allPlanets = () => {
+  const incompletePlanets = missingPlanets.features as Planet[];
+  const completePlanets = planetsGeo.features as Planet[];
+  return completePlanets.concat(incompletePlanets);
+};
+
 export const coordinatesForPlanet = name => {
-  return planetsGeo.features.find(x => x.properties.name === name).geometry
+  return allPlanets().find(x => x.properties.name === name).geometry
     .coordinates;
 };
 
@@ -14,7 +22,7 @@ const fullListOfPlanetNames = planetsGeo.features
   .filter(name => name !== null);
 
 const getDataForPlanetWithName = (name: string) => {
-  return planetsGeo.features
+  return allPlanets()
     .map(planet => planet.properties)
     .filter(property => property.name === name)[0];
 };

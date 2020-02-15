@@ -1,32 +1,27 @@
-import { CRS } from "leaflet";
 import React from "react";
-import {
-  GeoJSON,
-  LayerGroup,
-  LayersControl,
-  Map,
-  Marker,
-  Tooltip
-} from "react-leaflet";
+import { LayerGroup, LayersControl, Map, Marker, Tooltip } from "react-leaflet";
 
 import grid from "../../data/grid.json";
 import hyperspace from "../../data/hyperspace.json";
 import region from "../../data/region.json";
 import sector from "../../data/sector.json";
-import { iconForPlanet } from "../../icon";
+
 import { GridSquare } from "../../interfaces/gridsquare.js";
-import { Planet } from "../../interfaces/planet.js";
 import { Region } from "../../interfaces/region.js";
 import { Sector } from "../../interfaces/sector.js";
+import { Hyperspace } from "../../interfaces/hyperspace.js";
+
 import { GridComponent } from "./GridComponent";
 import { RegionComponent } from "./RegionComponent";
 import { searchComponent } from "./SearchComponent";
 import { SectorComponent } from "./SectorComponent";
+import { HyperspaceRouteComponent } from "./HyperspaceRouteComponent";
+import { iconForPlanet } from "../../icon";
 
 export class BaseMap extends React.Component<{ onToolTipClick: any }> {
   state = {};
 
-  examples: Planet[] = require("../../data/test.json");
+  examples = require("../../data/test.json");
 
   createMarkers = (canonOnly: number) => {
     return this.examples
@@ -48,7 +43,7 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
   };
 
   createSectors() {
-    const sectors: Sector[] = sector.features;
+    const sectors = sector.features as Sector[];
     return sectors.map(s => {
       const sec = <SectorComponent key={`sector-${s.properties.sid}`} {...s} />;
       return sec;
@@ -56,7 +51,7 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
   }
 
   createRegions() {
-    const regions: Region[] = region.features;
+    const regions = region.features as Region[];
     return regions.map(r => {
       const reg = <RegionComponent key={`region-${r.properties.rid}`} {...r} />;
       return reg;
@@ -64,38 +59,24 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
   }
 
   createGrid() {
-    const gridSquares: GridSquare[] = grid.features;
+    const gridSquares = grid.features as GridSquare[];
     return gridSquares.map(g => {
       return <GridComponent key={`grid-${g.properties.grid}`} {...g} />;
     });
   }
 
   createHyperspace() {
-    const hyperspaceRoutes = hyperspace.features;
+    const hyperspaceRoutes = hyperspace.features as Hyperspace[];
     return hyperspaceRoutes.map(r => {
       return (
-        <GeoJSON
-          data={r}
-          style={() => ({
-            color: "white",
-            weight: 2
-          })}
-          key={`route-${r.properties.hid}`}>
-          <Tooltip sticky={true} permanent={false}>
-            {r.properties.hyperspace}
-          </Tooltip>
-        </GeoJSON>
+        <HyperspaceRouteComponent key={`route-${r.properties.hid}`} {...r} />
       );
     });
   }
 
   render() {
     return (
-      <Map
-        center={[0, 0]}
-        zoom={3}
-        maxZoom={10}
-        inertia={true}>
+      <Map center={[0, 0]} zoom={3} maxZoom={10} inertia={true}>
         {searchComponent({})}
         <LayersControl position="topright">
           {this.createMarkers(1)}
@@ -105,19 +86,16 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
           <LayersControl.Overlay name="Fan planets" checked={true}>
             <LayerGroup> {this.createMarkers(2)}</LayerGroup>
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Hyperspace" checked={false}>
+          <LayersControl.Overlay name="Hyperspace routes" checked={false}>
             <LayerGroup>{this.createHyperspace()}</LayerGroup>
           </LayersControl.Overlay>
           <LayersControl.Overlay name="Grid" checked={true}>
             <LayerGroup>{this.createGrid()}</LayerGroup>
           </LayersControl.Overlay>
-          <LayersControl.Overlay
-            name="Planets"
-            checked={false}></LayersControl.Overlay>
-          <LayersControl.Overlay name="Galactic sectors" checked={false}>
+          <LayersControl.Overlay name=" Sectors" checked={true}>
             <LayerGroup>{this.createSectors()}</LayerGroup>
           </LayersControl.Overlay>
-          <LayersControl.Overlay name="Galactic regions" checked={true}>
+          <LayersControl.Overlay name="Regions" checked={false}>
             <LayerGroup> {this.createRegions()}</LayerGroup>
           </LayersControl.Overlay>
         </LayersControl>
