@@ -44,21 +44,6 @@ const PlanetData = (planet: PlanetProperties) => {
           <span>Held by:</span> {factionName}
         </p>
       )}
-      {/* {hasSubFactions && (
-        <div>
-          <span>Factions represented:</span>
-          <ul>
-            {subFactionData.map(faction => {
-              const keyId = subFactionData.indexOf(faction);
-              return (
-                <li className="sub-faction" key={keyId}>
-                  {faction.factionName}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )} */}
       {sector && (
         <p>
           <span>Sector:</span> {sector}
