@@ -1,4 +1,5 @@
 import factionPlanets from "../data/factionPlanets.json";
+import factionSectors from "../data/factionSectors.json";
 import planets from "../data/planets.json";
 import planetsGeo from "../data/planetsGeo.json";
 import missingPlanets from "../data/missingPlanets.json";
@@ -28,11 +29,19 @@ const getDataForPlanetWithName = (name: string) => {
 };
 
 const findFactionForPlanetWithName = (name: string) => {
-  const faction = factionPlanets.find(
+  const planetData = getDataForPlanetWithName(name);
+
+  const planetFaction = factionPlanets.find(
     faction => faction.planets.includes(name) && faction.type === "primary"
   );
-  return faction
-    ? { factionName: faction.factionName, colour: faction.colour }
+  const sectorFaction = factionSectors.find(sector =>
+    sector.sectors.includes(planetData.sector)
+  );
+
+  return planetFaction
+    ? { factionName: planetFaction.factionName, colour: planetFaction.colour }
+    : sectorFaction
+    ? { factionName: sectorFaction.factionName, colour: sectorFaction.colour }
     : { factionName: "Unallied", colour: "black" };
 };
 

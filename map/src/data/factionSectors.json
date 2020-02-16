@@ -1,7 +1,7 @@
 [
   {
     "factionName": "Alliance",
-    "color": "red",
+    "colour": "red",
     "sectors": [
       "Japrael",
       "Hapes Cluster",
@@ -177,7 +177,7 @@
   },
   {
     "factionName": "Empire",
-    "color": "blue",
+    "colour": "blue",
     "sectors": [
       "Seitia",
       "Saijo",
@@ -506,8 +506,8 @@
     ]
   },
   {
-    "factionName": "Hutt Cartel",
-    "color": "olive",
+    "factionName": "Neutral/Hutt",
+    "colour": "olive",
     "sectors": [
       "Hutt Space",
       "Kessel",
@@ -526,7 +526,7 @@
   },
   {
     "factionName": "The Chiss Ascendancy",
-    "color": "cyan",
+    "colour": "cyan",
     "sectors": "Chiss Ascendancy"
   }
 ]
