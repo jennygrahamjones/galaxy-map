@@ -512,10 +512,30 @@ svg.leaflet-image-layer.leaflet-interactive path {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.leaflet-popup-content-wrapper,
-.leaflet-popup-tip {
+.leaflet-popup-content-wrapper, leaflet-popup-tip {
+  background: #d6d6d6;
+  color: #252525
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+}
+}
+.leaflet-popup-content-wrapper-empire,
+.leaflet-popup-tip-empire {
   background: white;
   color: #333;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+}
+}
+.leaflet-popup-content-wrapper-alliance,
+.leaflet-popup-tip-alliance {
+  background: #3f1a1a;
+  color: #91aeb3;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+}
+}
+.leaflet-popup-content-wrapper-hutt,
+.leaflet-popup-tip-hutt {
+  background: #232d16;
+  color: #CBBFBB;
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
 }
 .leaflet-container a.leaflet-popup-close-button {
