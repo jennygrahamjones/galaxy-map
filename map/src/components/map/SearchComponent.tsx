@@ -3,21 +3,17 @@ import React from "react";
 import { Popup } from "react-leaflet";
 import ReactLeafletSearch from "react-leaflet-search";
 
-import { PlanetProperties, Planet } from "../../interfaces/planet.js";
+import { PlanetProperties } from "../../interfaces/planet.js";
 import {
+  allPlanets,
   coordinatesForPlanet,
-  getDataForPlanetWithName,
-  allPlanets
+  getDataForPlanetWithName
 } from "../../utils/planets";
-import PlanetData from "../PlanetData";
+import { factionSpecificPopup } from "./CustomPopup";
 
 const myPopup = search => {
   const data: PlanetProperties = getDataForPlanetWithName(search.info);
-  return (
-    <Popup>
-      <PlanetData {...data} />
-    </Popup>
-  );
+  return <Popup>{factionSpecificPopup(data)}</Popup>;
 };
 
 export const searchComponent = props => (
