@@ -3,7 +3,7 @@ import React from "react";
 import { Popup } from "react-leaflet";
 import ReactLeafletSearch from "react-leaflet-search";
 
-import { PlanetProperties, Planet } from "../../interfaces/planet.js";
+import { PlanetProperties } from "../../interfaces/planet.js";
 import {
   coordinatesForPlanet,
   getDataForPlanetWithName,
@@ -43,8 +43,8 @@ export const searchComponent = props => (
 
         const searchResults = possiblePlanets.map(planet => {
           return {
-            longitude: coordinatesForPlanet(planet)[0],
-            latitude: coordinatesForPlanet(planet)[1],
+            longitude: coordinatesForPlanet(planet)[1],
+            latitude: coordinatesForPlanet(planet)[0],
             name: planet
           };
         });

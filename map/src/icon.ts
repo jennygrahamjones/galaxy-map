@@ -62,3 +62,26 @@ export const iconForPlanet = (planet: string) => {
     shadowAnchor: [4, 62] // the same for the shadow
   });
 };
+
+export const createClusterCustomIcon = cluster => {
+  const count = cluster.getChildCount();
+  let size = "LargeXL";
+
+  if (count < 10) {
+    size = "Small";
+  } else if (count >= 10 && count < 100) {
+    size = "Medium";
+  } else if (count >= 100 && count < 500) {
+    size = "Large";
+  }
+  const options = {
+    cluster: `markerCluster${size}`
+  };
+
+  return L.divIcon({
+    html: `<div>
+        <img class=${options.cluster} src='https://raw.githubusercontent.com/jennygrahamjones/galaxy-map/master/map/src/assets/planets/temperate.png' />
+      </div>`,
+    className: `${options.cluster}`
+  });
+};

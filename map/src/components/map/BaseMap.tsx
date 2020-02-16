@@ -10,6 +10,7 @@ import { GridSquare } from "../../interfaces/gridsquare.js";
 import { Region } from "../../interfaces/region.js";
 import { Sector } from "../../interfaces/sector.js";
 import { Hyperspace } from "../../interfaces/hyperspace.js";
+import { Planet } from "../../interfaces/planet.js";
 
 import { GridComponent } from "./GridComponent";
 import { RegionComponent } from "./RegionComponent";
@@ -18,28 +19,31 @@ import { SectorComponent } from "./SectorComponent";
 import { HyperspaceRouteComponent } from "./HyperspaceRouteComponent";
 import { iconForPlanet } from "../../icon";
 
-export class BaseMap extends React.Component<{ onToolTipClick: any }> {
+import MarkerClusterGroup from "react-leaflet-markercluster";
+import { allPlanets } from "../../utils/planets";
+
+import { createClusterCustomIcon } from "../../icon";
+
+export class BaseMap extends React.Component {
   state = {};
 
-  examples = require("../../data/test.json");
+  examples = allPlanets() as Planet[];
 
-  createMarkers = (canonOnly: number) => {
-    return this.examples
-      .filter(planet => planet.properties.canon === canonOnly)
-      .map(planet => {
-        const coords = planet.geometry.coordinates.reverse();
-        const { name, uid } = planet.properties;
-        const marker = (
-          <Marker
-            key={`marker-${uid}`}
-            position={coords}
-            title={name}
-            icon={iconForPlanet(name)}>
-            <Tooltip key={`tooltip-${uid}`}>{name}</Tooltip>
-          </Marker>
-        );
-        return marker;
-      });
+  createMarkers = () => {
+    return this.examples.map(planet => {
+      const { coordinates } = planet.geometry;
+      const { name, uid } = planet.properties;
+      const marker = (
+        <Marker
+          key={`marker-${uid}`}
+          position={coordinates.reverse()}
+          title={name}
+          icon={iconForPlanet(name)}>
+          <Tooltip key={`tooltip-${uid}`}>{name}</Tooltip>
+        </Marker>
+      );
+      return marker;
+    });
   };
 
   createSectors() {
@@ -79,13 +83,17 @@ export class BaseMap extends React.Component<{ onToolTipClick: any }> {
       <Map center={[0, 0]} zoom={3} maxZoom={10} inertia={true}>
         {searchComponent({})}
         <LayersControl position="topright">
-          {this.createMarkers(1)}
-          <LayersControl.Overlay name="Legends planets" checked={true}>
-            <LayerGroup> {this.createMarkers(0)}</LayerGroup>
-          </LayersControl.Overlay>
-          <LayersControl.Overlay name="Fan planets" checked={true}>
-            <LayerGroup> {this.createMarkers(2)}</LayerGroup>
-          </LayersControl.Overlay>
+          <MarkerClusterGroup
+            iconCreateFunction={createClusterCustomIcon}
+            maxClusterRadius={55}
+            disableClusteringAtZoom={5}
+            spiderLegPolylineOptions={{
+              weight: 0,
+              opacity: 0
+            }}
+            polygonOptions={{ weight: 0, opacity: 0 }}>
+            {this.createMarkers()}
+          </MarkerClusterGroup>
           <LayersControl.Overlay name="Hyperspace routes" checked={false}>
             <LayerGroup>{this.createHyperspace()}</LayerGroup>
           </LayersControl.Overlay>

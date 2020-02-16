@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <BaseMap onToolTipClick={this.setPlanetData} />
+        <BaseMap />
       </div>
     );
   }
