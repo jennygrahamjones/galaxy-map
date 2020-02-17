@@ -83,11 +83,11 @@
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [57.253377, 61.122869] },
+      "geometry": { "type": "Point", "coordinates": [62.853377, 56.522869] },
       "properties": {
         "name": "Calan",
         "region": "Outer Rim",
-        "sector": "Meram",
+        "sector": "Nembus",
         "cartodb_id": 24503,
         "zm": 0,
         "canon": 0,
@@ -103,11 +103,11 @@
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [61.853377, 56.522869] },
+      "geometry": { "type": "Point", "coordinates": [61.245099, 57.139128] },
       "properties": {
         "name": "Cana'daari",
-        "region": "",
-        "sector": "",
+        "region": "Outer Rim",
+        "sector": "Nembus",
         "cartodb_id": 24504,
         "zm": 0,
         "canon": 0,
@@ -123,11 +123,11 @@
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [60.953377, 55.122869] },
+      "geometry": { "type": "Point", "coordinates": [61.001099, 56.439128] },
       "properties": {
         "name": "Carshoulis",
-        "region": "",
-        "sector": "",
+        "region": "Outer Rim",
+        "sector": "Nembus",
         "cartodb_id": 24505,
         "zm": 0,
         "canon": 0,
@@ -138,7 +138,8 @@
         "point_y": 7450.09045621,
         "point_x": 6770.41681693,
         "y": 7450.09,
-        "x": 6770.42      }
+        "x": 6770.42
+      }
     },
     {
       "type": "Feature",
