@@ -83,18 +83,18 @@
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [57.253377, 61.122869] },
+      "geometry": { "type": "Point", "coordinates": [62.853377, 56.522869] },
       "properties": {
         "name": "Calan",
-        "region": "",
-        "sector": "",
+        "region": "Outer Rim",
+        "sector": "Nembus",
         "cartodb_id": 24503,
         "zm": 0,
         "canon": 0,
         "uid": 24503,
         "grid": "P4",
-        "link": "",
-        "name_web": "",
+        "link": "https://theholo.net/wiki/index.php/Calan",
+        "name_web": "Calan",
         "point_y": 8654.09045621,
         "point_x": 6373.41681693,
         "y": 8654.09,
@@ -103,11 +103,11 @@
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [57.253377, 61.122869] },
+      "geometry": { "type": "Point", "coordinates": [61.245099, 57.139128] },
       "properties": {
         "name": "Cana'daari",
-        "region": "",
-        "sector": "",
+        "region": "Outer Rim",
+        "sector": "Nembus",
         "cartodb_id": 24504,
         "zm": 0,
         "canon": 0,
@@ -115,19 +115,19 @@
         "grid": "P4",
         "link": "",
         "name_web": "",
-        "point_y": 8654.09045621,
-        "point_x": 6373.41681693,
-        "y": 8654.09,
-        "x": 6373.42
+        "point_y": 7700.09045621,
+        "point_x": 6855.41681693,
+        "y": 7700.09,
+        "x": 6855.42
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [57.253377, 61.122869] },
+      "geometry": { "type": "Point", "coordinates": [61.001099, 56.439128] },
       "properties": {
         "name": "Carshoulis",
-        "region": "",
-        "sector": "",
+        "region": "Outer Rim",
+        "sector": "Nembus",
         "cartodb_id": 24505,
         "zm": 0,
         "canon": 0,
@@ -135,10 +135,10 @@
         "grid": "P4",
         "link": "",
         "name_web": "",
-        "point_y": 8654.09045621,
-        "point_x": 6373.41681693,
-        "y": 8654.09,
-        "x": 6373.42
+        "point_y": 7450.09045621,
+        "point_x": 6770.41681693,
+        "y": 7450.09,
+        "x": 6770.42
       }
     },
     {
