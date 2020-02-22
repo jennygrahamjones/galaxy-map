@@ -6,11 +6,11 @@ import hyperspace from "../../data/hyperspace.json";
 import region from "../../data/region.json";
 import sector from "../../data/sector.json";
 
-import { GridSquare } from "../../interfaces/gridsquare.js";
-import { Region } from "../../interfaces/region.js";
-import { Sector } from "../../interfaces/sector.js";
-import { Hyperspace } from "../../interfaces/hyperspace.js";
-import { Planet } from "../../interfaces/planet.js";
+import { GridSquare } from "../../interfaces/gridsquare";
+import { Region } from "../../interfaces/region";
+import { Sector } from "../../interfaces/sector";
+import { Hyperspace } from "../../interfaces/hyperspace";
+import { Planet } from "../../interfaces/planet";
 
 import { GridComponent } from "./GridComponent";
 import { RegionComponent } from "./RegionComponent";
