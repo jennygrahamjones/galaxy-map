@@ -16,42 +16,41 @@ export const iconForPlanet = (planet: string) => {
   const faction = findFactionForPlanetWithName(planet);
 
   const url = () => {
-    switch (hasPlanetSpecificIcon) {
-      case true:
-        return require(`./assets/planets/${planetProperties.icon}`);
-      default:
-        switch (capitol) {
-          case true:
-            switch (faction.factionName) {
-              case "Alliance":
-                return require("./assets/planets/lush-alliance-capital.png");
-              // TODO: add for others
-              default:
-                return require("./assets/planets/city.png");
-            }
-          case false:
-            switch (climate) {
-              case "frozen":
-                return require("./assets/planets/snow-world.png");
-              case "tropical":
-                return require("./assets/planets/lush.png");
-              case "arid":
-                return require("./assets/planets/desert.png");
-              default:
-                switch (terrain) {
-                  case "cityscape":
-                    return require("./assets/planets/city.png");
-                  case "ocean":
-                    return require("./assets/planets/waterworld.png");
-                  case "gas giant":
-                    return require("./assets/planets/gas-giant.png");
-                  case "volcanoes":
-                    return require("./assets/planets/volcanic.png");
-                  default:
-                    return require("./assets/planets/temperate.png");
-                }
-            }
-        }
+    if (hasPlanetSpecificIcon) {
+      return require(`./assets/planets/${planetProperties.icon}`);
+    } else {
+      switch (capitol) {
+        case true:
+          switch (faction.factionName) {
+            case "Alliance":
+              return require("./assets/planets/lush-alliance-capital.png");
+            // TODO: add for others
+            default:
+              return require("./assets/planets/city.png");
+          }
+        case false:
+          switch (climate) {
+            case "frozen":
+              return require("./assets/planets/snow-world.png");
+            case "tropical":
+              return require("./assets/planets/lush.png");
+            case "arid":
+              return require("./assets/planets/desert.png");
+            default:
+              switch (terrain) {
+                case "cityscape":
+                  return require("./assets/planets/city.png");
+                case "ocean":
+                  return require("./assets/planets/waterworld.png");
+                case "gas giant":
+                  return require("./assets/planets/gas-giant.png");
+                case "volcanoes":
+                  return require("./assets/planets/volcanic.png");
+                default:
+                  return require("./assets/planets/temperate.png");
+              }
+          }
+      }
     }
   };
 

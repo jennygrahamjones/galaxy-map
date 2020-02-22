@@ -33,6 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/* --fix --quiet",
+    "unused": "ts-unused-exports tsconfig.json --showLineNumber --searchNamespaces",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
@@ -57,6 +58,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "gh-pages": "^2.2.0",
     "json-loader": "^0.5.7",
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "ts-unused-exports": "^6.0.0"
   }
 }

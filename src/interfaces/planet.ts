@@ -29,5 +29,3 @@ export interface Planet {
   geometry: PlanetGeometry;
   properties: PlanetProperties;
 }
-
-export interface Planet {}
