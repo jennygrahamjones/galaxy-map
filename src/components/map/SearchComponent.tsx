@@ -3,7 +3,7 @@ import React from "react";
 import { Popup } from "react-leaflet";
 import ReactLeafletSearch from "react-leaflet-search";
 
-import { PlanetProperties } from "../../interfaces/planet.js";
+import { PlanetProperties } from "../../interfaces/planet";
 import {
   allPlanets,
   coordinatesForPlanet,

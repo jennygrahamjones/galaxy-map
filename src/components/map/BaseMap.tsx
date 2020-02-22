@@ -1,36 +1,29 @@
 import React from "react";
 import { LayerGroup, LayersControl, Map, Marker, Tooltip } from "react-leaflet";
+import MarkerClusterGroup from "react-leaflet-markercluster";
 
 import grid from "../../data/grid.json";
 import hyperspace from "../../data/hyperspace.json";
 import region from "../../data/region.json";
 import sector from "../../data/sector.json";
+import { createClusterCustomIcon, iconForPlanet } from "../../icon";
+import { GridSquare } from "../../interfaces/gridsquare";
+import { Hyperspace } from "../../interfaces/hyperspace";
 
-import { GridSquare } from "../../interfaces/gridsquare.js";
-import { Region } from "../../interfaces/region.js";
-import { Sector } from "../../interfaces/sector.js";
-import { Hyperspace } from "../../interfaces/hyperspace.js";
-import { Planet } from "../../interfaces/planet.js";
-
+import { Region } from "../../interfaces/region";
+import { Sector } from "../../interfaces/sector";
+import { allPlanets } from "../../utils/planets";
 import { GridComponent } from "./GridComponent";
+import { HyperspaceRouteComponent } from "./HyperspaceRouteComponent";
 import { RegionComponent } from "./RegionComponent";
 import { searchComponent } from "./SearchComponent";
 import { SectorComponent } from "./SectorComponent";
-import { HyperspaceRouteComponent } from "./HyperspaceRouteComponent";
-import { iconForPlanet } from "../../icon";
-
-import MarkerClusterGroup from "react-leaflet-markercluster";
-import { allPlanets } from "../../utils/planets";
-
-import { createClusterCustomIcon } from "../../icon";
 
 export class BaseMap extends React.Component {
   state = {};
 
-  examples = allPlanets() as Planet[];
-
   createMarkers = () => {
-    return this.examples.map(planet => {
+    return allPlanets().map(planet => {
       const { coordinates } = planet.geometry;
       const { name, uid } = planet.properties;
       const marker = (
