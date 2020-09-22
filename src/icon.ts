@@ -79,7 +79,7 @@ export const createClusterCustomIcon = cluster => {
 
   return L.divIcon({
     html: `<div>
-        <img class=${options.cluster} src='https://raw.githubusercontent.com/jennygrahamjones/galaxy-map/master/src/assets/planets/temperate.png' />
+        <img class=${options.cluster} src='https://raw.githubusercontent.com/jennygrahamjones/galaxy-map/main/src/assets/planets/temperate.png' />
       </div>`,
     className: `${options.cluster}`
   });
