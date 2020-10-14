@@ -1,4 +1,5 @@
 # galaxy-map
+![CodeQL](https://github.com/jennygrahamjones/galaxy-map/workflows/CodeQL/badge.svg)
 
 Interactive map of the Star Wars galaxy, built with TypeScript and React.js. The map uses:
 - [React-Leaflet](https://react-leaflet.js.org/) to plot GeoJSON of planets, sectors, regions, and other points of interest in the Star Wars galaxy
